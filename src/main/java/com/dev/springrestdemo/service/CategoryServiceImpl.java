@@ -3,6 +3,7 @@ package com.dev.springrestdemo.service;
 import com.dev.springrestdemo.api.v1.mapper.CategoryMapper;
 import com.dev.springrestdemo.api.v1.modle.CategoryDTO;
 import com.dev.springrestdemo.reposiotry.CategoryRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -10,6 +11,7 @@ import java.util.stream.Collectors;
 /**
  * @author Kevin Neag
  */
+@Service
 public class CategoryServiceImpl implements CategoryService {
 
     private final CategoryMapper categoryMapper;
