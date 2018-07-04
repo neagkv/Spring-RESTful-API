@@ -23,6 +23,8 @@ public class CategoryServiceTest {
     public static final Long ID = 2L;
     public static final String NAME = "Jimmy";
 
+    CategoryService categoryService;
+
     @Mock
     CategoryRepository categoryRepository;
 
@@ -43,24 +45,25 @@ public class CategoryServiceTest {
         List<CategoryDTO> categoryDTOS = categoryService.getAllCategories();
 
         //then
-        assertEquals(3,categoryDTOS.size());
+        assertEquals(3, categoryDTOS.size());
+    }
 
-        @Test
-        public void getCategoryByName() throws Exception {
+    @Test
+    public void getCategoryByName() throws Exception {
 
-            //given
-            Category category = new Category();
-            category.setId(ID);
-            category.setName(NAME);
+        //given
+        Category category = new Category();
+        category.setId(ID);
+        category.setName(NAME);
 
-            when(categoryRepository.findByName(anyString())).thenReturn(category);
+        when(categoryRepository.findByName(anyString())).thenReturn(category);
 
-            //when
-            CategoryDTO categoryDTO = categoryService.getCategoryByName(NAME);
+        //when
+        CategoryDTO categoryDTO = categoryService.getCategoryByName(NAME);
 
-            //then
-            assertEquals(ID, categoryDTO.getId());
-            assertEquals(NAME, categoryDTO.getName());
-        }
+        //then
+        assertEquals(ID, categoryDTO.getId());
+        assertEquals(NAME, categoryDTO.getName());
     }
 }
+
