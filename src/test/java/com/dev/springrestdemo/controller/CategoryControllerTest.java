@@ -1,6 +1,6 @@
 package com.dev.springrestdemo.controller;
 
-import com.dev.springrestdemo.api.v1.modle.CategoryDTO;
+import com.dev.springrestdemo.api.v1.model.CategoryDTO;
 import com.dev.springrestdemo.controllers.v1.CategoryController;
 import com.dev.springrestdemo.service.CategoryService;
 import org.junit.Before;

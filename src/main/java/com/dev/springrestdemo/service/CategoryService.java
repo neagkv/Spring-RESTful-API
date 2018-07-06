@@ -1,6 +1,6 @@
 package com.dev.springrestdemo.service;
 
-import com.dev.springrestdemo.api.v1.modle.CategoryDTO;
+import com.dev.springrestdemo.api.v1.model.CategoryDTO;
 
 import java.util.List;
 

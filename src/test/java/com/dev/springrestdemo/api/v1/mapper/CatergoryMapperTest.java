@@ -1,6 +1,6 @@
 package com.dev.springrestdemo.api.v1.mapper;
 
-import com.dev.springrestdemo.api.v1.modle.CategoryDTO;
+import com.dev.springrestdemo.api.v1.model.CategoryDTO;
 import com.dev.springrestdemo.domain.Category;
 import org.junit.Test;
 

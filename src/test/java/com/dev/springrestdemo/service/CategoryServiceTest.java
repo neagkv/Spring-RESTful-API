@@ -1,6 +1,7 @@
 package com.dev.springrestdemo.service;
 
-import com.dev.springrestdemo.api.v1.modle.CategoryDTO;
+import com.dev.springrestdemo.api.v1.mapper.CategoryMapper;
+import com.dev.springrestdemo.api.v1.model.CategoryDTO;
 import com.dev.springrestdemo.domain.Category;
 import com.dev.springrestdemo.reposiotry.CategoryRepository;
 import org.junit.Before;
@@ -30,7 +31,9 @@ public class CategoryServiceTest {
 
     @Before
     public void setUp() throws Exception {
-        MockitoAnnotations.initMocks(this.getClass());
+        MockitoAnnotations.initMocks(this);
+
+        categoryService = new CategoryServiceImpl(CategoryMapper.INSTANCE, categoryRepository);
     }
 
     @Test

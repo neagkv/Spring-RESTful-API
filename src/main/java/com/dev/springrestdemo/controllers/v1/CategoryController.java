@@ -1,8 +1,8 @@
 package com.dev.springrestdemo.controllers.v1;
 
 
-import com.dev.springrestdemo.api.v1.modle.CategoryDTO;
-import com.dev.springrestdemo.api.v1.modle.CategoryListDTO;
+import com.dev.springrestdemo.api.v1.model.CategoryDTO;
+import com.dev.springrestdemo.api.v1.model.CategoryListDTO;
 import com.dev.springrestdemo.service.CategoryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

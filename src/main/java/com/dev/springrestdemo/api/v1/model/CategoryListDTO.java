@@ -1,4 +1,4 @@
-package com.dev.springrestdemo.api.v1.modle;
+package com.dev.springrestdemo.api.v1.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
