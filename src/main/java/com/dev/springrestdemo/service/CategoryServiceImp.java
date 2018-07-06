@@ -12,12 +12,12 @@ import java.util.stream.Collectors;
  * @author Kevin Neag
  */
 @Service
-public class CategoryServiceImpl implements CategoryService {
+public class CategoryServiceImp implements CategoryService {
 
     private final CategoryMapper categoryMapper;
     private final CategoryRepository categoryRepository;
 
-    public CategoryServiceImpl(CategoryMapper categoryMapper, CategoryRepository categoryRepository) {
+    public CategoryServiceImp(CategoryMapper categoryMapper, CategoryRepository categoryRepository) {
         this.categoryMapper = categoryMapper;
         this.categoryRepository = categoryRepository;
     }
