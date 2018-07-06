@@ -43,7 +43,7 @@ jobs:
       - store_test_results:
           path: target/surefire-reports
 
-      -environment:
+      - environment:
            - MYTOKEN=${MYTOKEN}
 
       - run:
