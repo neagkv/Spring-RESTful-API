@@ -13,13 +13,13 @@ import java.util.stream.Collectors;
  * @author Kevin Neag
  */
 @Service
-public class CustomerServiceImp implements CustomerService {
+public class CustomerServiceImpl implements CustomerService {
 
 
     private final CustomerMapper customerMapper;
     private final CustomerRepository customerRepository;
 
-    public CustomerServiceImp(CustomerMapper customerMapper, CustomerRepository customerRepository) {
+    public CustomerServiceImpl(CustomerMapper customerMapper, CustomerRepository customerRepository) {
         this.customerMapper = customerMapper;
         this.customerRepository = customerRepository;
     }
@@ -65,6 +65,22 @@ public class CustomerServiceImp implements CustomerService {
         customer.setId(id);
 
         return saveAndReturnDTO(customer);
+    }
+
+    @Override
+    public CustomerDTO patchCustomer(Long id, CustomerDTO customerDTO) {
+        return customerRepository.findById(id).map(customer -> {
+
+            if(customerDTO.getFirstname() != null){
+                customer.setFirstname(customerDTO.getFirstname());
+            }
+
+            if(customerDTO.getLastname() != null){
+                customer.setLastname(customerDTO.getLastname());
+            }
+
+            return customerMapper.customerToCustomerDTO(customerRepository.save(customer));
+        }).orElseThrow(RuntimeException::new); //todo implement better exception handling;
     }
 
 
