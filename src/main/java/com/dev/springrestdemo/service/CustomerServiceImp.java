@@ -2,6 +2,7 @@ package com.dev.springrestdemo.service;
 
 import com.dev.springrestdemo.api.v1.mapper.CustomerMapper;
 import com.dev.springrestdemo.api.v1.model.CustomerDTO;
+import com.dev.springrestdemo.domain.Customer;
 import com.dev.springrestdemo.reposiotry.CustomerRepository;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +41,20 @@ public class CustomerServiceImp implements CustomerService {
         return customerRepository.findById(id)
                 .map(customerMapper::customerToCustomerDTO)
                 .orElseThrow(RuntimeException::new); //todo implement better exception handling
+    }
+
+    @Override
+    public CustomerDTO createNewCustomer(CustomerDTO customerDTO) {
+
+        Customer customer = customerMapper.customerDTOTOCustomer(customerDTO);
+
+        Customer savedCustomer = customerRepository.save(customer);
+
+        CustomerDTO returnDTO = customerMapper.customerToCustomerDTO(savedCustomer);
+
+        returnDTO.setCustomerURL("/api/vi/customer/" + savedCustomer.getId());
+
+        return returnDTO;
     }
 
 

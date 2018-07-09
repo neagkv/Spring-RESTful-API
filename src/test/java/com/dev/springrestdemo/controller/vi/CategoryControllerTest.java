@@ -1,4 +1,4 @@
-package com.dev.springrestdemo.controller;
+package com.dev.springrestdemo.controller.vi;
 
 import com.dev.springrestdemo.api.v1.model.CategoryDTO;
 import com.dev.springrestdemo.controllers.v1.CategoryController;
