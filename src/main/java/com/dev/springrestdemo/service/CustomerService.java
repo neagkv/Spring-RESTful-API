@@ -11,5 +11,5 @@ public interface CustomerService {
 
     List<CustomerDTO> getAllCustomers();
 
-    CustomerDTO getCustomerByName(String firstname);
+    CustomerDTO getCustomerById(Long id);
 }

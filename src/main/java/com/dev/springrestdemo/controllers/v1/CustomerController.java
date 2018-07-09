@@ -31,10 +31,9 @@ public class CustomerController {
                 new CustomerListDTO(customerService.getAllCustomers()), HttpStatus.OK);
     }
 
-    @GetMapping("{firstname}")
-    public ResponseEntity<CustomerDTO> getCategoryByName(@PathVariable String firstname){
-        return new ResponseEntity<CustomerDTO>(
-                customerService.getCustomerByName(firstname), HttpStatus.OK
-        );
+    @GetMapping({"{id}"})
+    public ResponseEntity<CustomerDTO> getCustomerById(@PathVariable Long id){
+        return new ResponseEntity<CustomerDTO>(customerService.getCustomerById(id), HttpStatus.OK);
     }
+
 }

@@ -25,55 +25,53 @@ public class Bootstrap implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+        loadCategories();
+        loadCustomers();
+    }
+
+
+    private void loadCategories() {
+
         Category fruits = new Category();
         fruits.setName("Fruits");
-
-        Customer joe = new Customer();
-        joe.setFirstname("Joe");
-        joe.setLastname("Smith");
 
         Category dried = new Category();
         dried.setName("Dried");
 
-        Customer dan = new Customer();
-        dan.setFirstname("Dan");
-        dan.setLastname("Brown");
-
         Category fresh = new Category();
         fresh.setName("Fresh");
-
-        Customer sam = new Customer();
-        sam.setFirstname("Sam");
-        sam.setLastname("Smith");
 
         Category exotic = new Category();
         exotic.setName("Exotic");
 
-        Customer peter = new Customer();
-        peter.setFirstname("Peter");
-        peter.setLastname("Brown");
-
         Category nuts = new Category();
         nuts.setName("Nuts");
 
-        Customer steve = new Customer();
-        steve.setFirstname("Steve");
-        steve.setLastname("Brown");
-
         categoryRepository.save(fruits);
-        customerRepository.save(joe);
         categoryRepository.save(dried);
-        customerRepository.save(dan);
         categoryRepository.save(fresh);
-        customerRepository.save(sam);
         categoryRepository.save(exotic);
-        customerRepository.save(peter);
         categoryRepository.save(nuts);
-        customerRepository.save(steve);
 
+        System.out.println("Categories Loaded: " + categoryRepository.count());
 
-        System.out.println("Data Loaded = " + categoryRepository.count() );
-        System.out.println("Data Loaded = " + customerRepository.count() );
+    }
 
+    private void loadCustomers() {
+        //given
+        Customer customer1 = new Customer();
+        customer1.setId(1l);
+        customer1.setFirstname("Michale");
+        customer1.setLastname("Weston");
+        customerRepository.save(customer1);
+
+        Customer customer2 = new Customer();
+        customer2.setId(2l);
+        customer2.setFirstname("Sam");
+        customer2.setLastname("Axe");
+
+        customerRepository.save(customer2);
+
+        System.out.println("Customers Loaded: " + customerRepository.count());
     }
 }
